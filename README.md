@@ -1,70 +1,185 @@
-# Getting Started with Create React App
+# Supportly - Complaints Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive complaints management system built with React and Tailwind CSS. Supportly provides both customer and resolver interfaces for efficient complaint handling and resolution.
 
-## Available Scripts
+![Supportly Dashboard](https://img.shields.io/badge/React-18+-blue?logo=react)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38B2AC?logo=tailwind-css)
+![Lucide Icons](https://img.shields.io/badge/Icons-Lucide-FF6B6B?logo=lucide)
 
-In the project directory, you can run:
+## 🌟 Features
 
-### `npm start`
+### Customer Interface
+- **File New Complaints**: Easy-to-use form with category selection and detailed descriptions
+- **Track Complaint Status**: Real-time status tracking (Open, In Progress, Resolved, Escalated)
+- **AI-Generated Solutions**: Automated solution suggestions for quick resolution
+- **Action Management**: Mark complaints as resolved or escalate to human support
+- **Status History**: Complete timeline of complaint lifecycle
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Resolver Interface  
+- **Dashboard Overview**: Centralized view of all assigned complaints
+- **Priority Management**: Color-coded status indicators and deadline tracking
+- **Team Assignment**: Dynamic team reassignment capabilities
+- **Comments System**: Internal notes and communication thread
+- **Bulk Actions**: Quick status updates and resolution tools
+- **Analytics**: Case load tracking and performance metrics
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🚀 State Machine Workflow
 
-### `npm test`
+The system implements a comprehensive state machine for complaint lifecycle:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+[Open] → [In Progress] → [Resolved]
+   ↓         ↓
+[Escalated] → [Resolved]
+```
 
-### `npm run build`
+- **Open**: Initial complaint state after filing
+- **In Progress**: Actively being worked on by resolver
+- **Escalated**: Requires higher-level attention
+- **Resolved**: Final state - complaint closed
+- **Assigned**: Routed to specific resolver/team
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🛠️ Tech Stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Frontend**: React 19.1.1
+- **Styling**: Tailwind CSS 3.4.17
+- **Icons**: Lucide React 0.537.0
+- **Build Tool**: Create React App
+- **Testing**: React Testing Library + Jest
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📦 Installation
 
-### `npm run eject`
+1. **Clone the repository**
+   ```bash
+   git clone <your-repo-url>
+   cd supportly-app
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. **Start development server**
+   ```bash
+   npm start
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. **Access the application**
+   - Open [http://localhost:3000](http://localhost:3000) in your browser
+   - Toggle between Customer View and Resolver View using the header buttons
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🏗️ Project Structure
 
-## Learn More
+```
+src/
+├── components/
+│   └── ui/
+│       ├── badge.js          # Status badges component
+│       ├── button.js         # Reusable button component  
+│       └── card.js           # Card layout components
+├── App.js                    # Main application component
+├── App.css                   # Custom CSS styles
+├── index.css                 # Global styles + Tailwind imports
+└── index.js                  # React DOM entry point
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🎨 UI Components
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Custom Components
+- **Badge**: Status indicators with color coding
+- **Button**: Multi-variant button system (default, outline, ghost)
+- **Card**: Flexible card layout with header, title, and content areas
 
-### Code Splitting
+### Key Features
+- **Responsive Design**: Mobile-first approach with Tailwind CSS
+- **Color System**: Semantic color coding for different complaint states
+- **Typography**: Clean, modern font system with proper hierarchy
+- **Interactive Elements**: Hover states and smooth transitions
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 📋 Available Scripts
 
-### Analyzing the Bundle Size
+- `npm start` - Run development server
+- `npm test` - Launch test runner  
+- `npm run build` - Build for production
+- `npm run eject` - Eject from Create React App (one-way operation)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🔧 Configuration
 
-### Making a Progressive Web App
+### Tailwind CSS
+The project uses Tailwind CSS with custom configuration:
+- Content scanning for `src/**/*.{js,jsx,ts,tsx}`
+- Extended theme capabilities
+- PostCSS integration with autoprefixer
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Google Fonts
+Custom Cookie font imported for branding:
+```css
+@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+```
 
-### Advanced Configuration
+## 🎯 Usage Examples
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Filing a New Complaint
+1. Click "New Complaint" button
+2. Select category (Billing, Technical, Service, etc.)
+3. Provide summary and detailed description
+4. Submit to receive automatic complaint ID
 
-### Deployment
+### Managing Complaints (Resolver View)
+1. Switch to "I'm a Resolver" view
+2. Review assigned complaints with priority indicators
+3. Add internal comments and notes
+4. Update status or reassign to different teams
+5. Mark as resolved when complete
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 🌈 Color Scheme
 
-### `npm run build` fails to minify
+The application uses a professional color palette:
+- **Primary**: Teal/Green (#2a7a6d) for branding
+- **Status Colors**:
+  - Green: Resolved complaints
+  - Blue: In Progress
+  - Yellow: Open complaints  
+  - Purple: Assigned status
+  - Red: Overdue/Urgent items
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📱 Responsive Design
+
+- **Mobile First**: Optimized for mobile devices
+- **Breakpoints**: Responsive grid system using Tailwind's breakpoint system
+- **Touch Friendly**: Large tap targets and intuitive navigation
+
+## 🚧 Future Enhancements
+
+- [ ] Real-time notifications
+- [ ] Advanced filtering and search
+- [ ] File attachment support
+- [ ] Email integration
+- [ ] Reporting and analytics dashboard
+- [ ] Multi-language support
+- [ ] Dark mode toggle
+- [ ] Export functionality
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit changes (`git commit -m 'Add AmazingFeature'`)
+4. Push to branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 💡 Support
+
+For support and questions:
+- Create an issue in the repository
+- Contact the development team
+- Check documentation for common solutions
+
+---
+
+Built with ❤️ using React and Tailwind CSS
