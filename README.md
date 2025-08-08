@@ -181,5 +181,12 @@ For support and questions:
 - Check documentation for common solutions
 
 ---
+## Screenshots
+<img width="1346" height="802" alt="Screenshot 2025-08-09 000218" src="https://github.com/user-attachments/assets/8f9ced14-4a5f-486a-b582-f76aa04cf2a8" />
+<img width="1352" height="658" alt="Screenshot 2025-08-09 000305" src="https://github.com/user-attachments/assets/5670e8b0-1f46-4c2f-9bff-d8087aca559b" />
+<img width="1343" height="684" alt="Screenshot 2025-08-09 000246" src="https://github.com/user-attachments/assets/2fd5995f-0494-4a6a-a9ae-99450ea4f17c" />
 
 Built with ❤️ using React and Tailwind CSS
+
+
+
